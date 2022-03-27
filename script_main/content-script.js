@@ -29,7 +29,6 @@ function mainInjection() {
           }
         )
       }
-
     if (window.location.href.indexOf('discord.com/channels/') > -1 &&targetStuff && collapseButton && localStorage.getItem('sidebar-1tnWFu') === 'display_none') {
       targetStuff.style.display = "none";
       // document.querySelector(".discordChan-collapse").textContent = 'Open';
