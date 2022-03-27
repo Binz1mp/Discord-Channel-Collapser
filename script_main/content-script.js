@@ -3,7 +3,6 @@ function mainInjection() {
     const injectElement = document.createElement('div');
     injectElement.classList.add('collapseParent');
     let collapseButton = document.getElementsByClassName("discordChan-collapse");
-
     const targetStuff = document.querySelector(".sidebar-1tnWFu");
     var i;
     injectElement.innerHTML = '<input type="image" class="discordChan-collapse" src="https://i.imgur.com/MCEsORi.png" alt="">';
