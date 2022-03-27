@@ -1,32 +1,46 @@
-.discordChan-collapse {
+.popcatChan-collapse {
     background-color: rgb(54, 57, 63);
-    color: black !important;
+    color: white !important;
     cursor: pointer;
     width: 48px;
     height: 48px;
-    margin-left: 0.75em;
+    margin-left: 0.77em;
     border-radius: 100%;
+    transition: border-radius .3s;
     outline: none;
     font-size: 15px;
     position: relative !important;
     margin-bottom: 0.25em;
     text-align: center;
     overflow: hidden;
+    background-image: url("https://i.imgur.com/MCEsORi.png");
   }
   
-.discordChan-collapse:hover {
+.popcatChan-collapse:hover {
   background-color: rgb(93, 102, 246) !important;
   border-radius: 30%;
-  transition-duration: 0.3s;
 }
 
-.discordChan-collapse:not(:hover) {
+.popcatChan-collapse:not(:hover) {
   border-radius: 100%;
   transition-duration: 0.5s;
 }
 
-.discordChan-collapse:active {
+.popcatChan-collapse:active {
   background-color: rgb(93, 102, 246) !important;
-  border-radius: 40%;
+  top:1px;
   transition-duration: 0.1s;
+  background-image: url("https://i.imgur.com/pfM8N8C.png");
+}
+
+@keyframes popcatChan_landing {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.popcatChan-collapse {  
+  animation: 0.3s ease-out popcatChan_landing;
 }
