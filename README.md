@@ -3,7 +3,7 @@ toy project no.2, Chrome extension
 # Discord-Channel-Collapser
 Sometimes you may want to hide discord channel, this does that.
 
-Do you really use Discord Web? No you don't. You won't.
+Do you really use Discord web? No you don't. You won't.
 
 
 Now this doesn't have Chrome web store link but, I'll publish soon, if you want.
