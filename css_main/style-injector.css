@@ -1,0 +1,26 @@
+.discordChan-collapse {
+    background-color: rgb(54, 57, 63);
+    color: black !important;
+    cursor: pointer;
+    width: 48px;
+    height: 48px;
+    margin-left: 0.75em;
+    border-radius: 100%;
+    outline: none;
+    font-size: 15px;
+    position: relative !important;
+    margin-bottom: 0.25em;
+    text-align: center;
+    overflow: hidden;
+  }
+  
+.discordChan-collapse:hover {
+  background-color: rgb(93, 102, 246) !important;
+  border-radius: 30%;
+  transition-duration: 0.3s;
+}
+
+.discordChan-collapse:not(:hover) {
+  border-radius: 100%;
+  transition-duration: 0.5s;
+}

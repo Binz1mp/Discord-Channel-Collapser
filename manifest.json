@@ -1,0 +1,28 @@
+{
+  "name": "Discord Channel Collapser",
+  "description": "what",
+  "version": "1.0.0",
+  "manifest_version": 3,
+  "content_scripts": [
+    {
+      "matches": ["https://discord.com/channels/*"], 
+      "js": ["script_main/content-script.js"],
+      "css" : ["css_main/style-injector.css"]
+    }
+],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "/images/16.png",
+      "32": "/images/32.png",
+      "48": "/images/48.png",
+      "128": "/images/128.png"
+    }
+  },
+  "icons": {
+    "16": "/images/16.png",
+    "32": "/images/32.png",
+    "48": "/images/48.png",
+    "128": "/images/128.png"
+  }
+}
