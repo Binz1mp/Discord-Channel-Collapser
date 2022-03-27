@@ -4,6 +4,8 @@ toy project no.2, Chrome extension
 Sometimes you may want to hide discord channel, this does that.
 Do you really use Discord Web? No you don't. You won't.
 
+
+Now this doesn't have Chrome web store link but, I'll publish soon, if you want.
 <!-- [Chrome web store link](https://) -->
 
 ## what it does
