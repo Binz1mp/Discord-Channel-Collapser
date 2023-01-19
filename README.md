@@ -6,7 +6,8 @@ Sometimes you may want to hide discord channel, this does that.
 Do you really use Discord web? No you don't. You won't.
 
 
-[Chrome web store link](https://chrome.google.com/webstore/detail/discord-channel-collapser/hgjdpefoaclnfpjcebapkndgpieaggfj)
+[Chrome web store link (now it's dead)]
+<!-- (https://chrome.google.com/webstore/detail/discord-channel-collapser/hgjdpefoaclnfpjcebapkndgpieaggfj) -->
 
 ## what it does
 ![description](https://user-images.githubusercontent.com/96367152/160280574-db968c40-9bd4-435d-ba05-6ec82d0d4999.png)
