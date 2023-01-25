@@ -18,6 +18,7 @@
   text-align: center;
   overflow: hidden;
   background-image: url("https://i.imgur.com/MCEsORi.png");
+  /* need to fix to load image in local */
 }
   
 .popcatChan-collapse:hover {
@@ -35,6 +36,7 @@
   top:1px;
   transition-duration: 0.1s;
   background-image: url("https://i.imgur.com/pfM8N8C.png");
+  /* need to fix to load image in local */
 }
 
 @keyframes popcatChan_landing {
