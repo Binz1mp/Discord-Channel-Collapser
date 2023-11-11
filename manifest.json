@@ -1,7 +1,7 @@
 {
   "name": "Discord Channel Collapser",
   "description": "This will let you have a button that can hide/show Discord channel sidebar.",
-  "version": "1.0.2",
+  "version": "1.0.2.1",
   "manifest_version": 3,
   "content_scripts": [
     {
