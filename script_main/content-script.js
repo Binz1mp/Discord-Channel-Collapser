@@ -1,47 +1,53 @@
-let consoleStyle = "text-shadow: 1px 1px 2px black, 0 0 1em blue, 0 0 0.2em blue; font-size: 40px; background-color: white; color: #181818"
+let consoleStyleNormal = "text-shadow: 1px 1px 2px black, 0 0 1em gray, 0 0 0.2em gray; background-color: gray; font-size: 18px; color: #ffffff";
+let consoleStyleSuccess = "text-shadow: 1px 1px 2px black, 0 0 1em blue, 0 0 0.2em blue; background-color: gray; font-size: 18px; color: #ffffff";
+let consoleStyleError = "text-shadow: 1px 1px 2px black, 0 0 1em red, 0 0 0.2em red; background-color: gray; font-size: 18px; color: #ffffff";
+
 function mainInjection() {
   if (window.location.href.indexOf('discord.com/channels/') > -1) {
-    console.log("%cDiscord Channel Collapser is WORKING", consoleStyle);
-    const injectElement = document.createElement('div');
-    injectElement.classList.add('collapseParent');
-    let collapseButton = document.getElementsByClassName("popcatChan-collapse");
-    const targetStuff = document.querySelector(".sidebar_ded4b5"); // 사이드바
-    // let messageItems = document.getElementsByClassName('cozy-VmLDNB wrapper-30-Nkg'); // 유저들의 메시지
-    // let avatarImgs = document.getElementsByClassName('avatar-2e8lTP'); // 유저들의 프로필 사진
-    injectElement.innerHTML = '<div class="popcatChan-collapse" alt=""></div>';
-    const insertbeforestuff = document.querySelector(".tutorialContainer__890ea"); // 팝캣 버튼을 배치할 위치
-    if (document.querySelector(".scroller__3d071.none__51a8f.scrollerBase_dc3aa9")) {
-      console.log("before_____operated");
-      document.querySelector(".scroller__3d071.none__51a8f.scrollerBase_dc3aa9").insertBefore(injectElement, insertbeforestuff);
-      console.log("after_____operated");
-    }
-    for (i = 0; i < collapseButton.length; i++) {
-      collapseButton[i].addEventListener("click", function () {
-        if (window.location.href.indexOf('discord.com/channels/') > -1 && targetStuff.style.display === "flex") {
-          targetStuff.style.display = "none";
-          localStorage.setItem("sidebar_ded4b5", 'display_none');
-          // for (let i = 0; i < avatarImgs.length; i++) { avatarImgs[i].style.display = "none"; }
-          // for (let i = 0; i < messageItems.length; i++) { messageItems[i].style.paddingLeft = "15px"; }
-        } else {
-            targetStuff.style.display = "flex";
-            localStorage.setItem("sidebar_ded4b5", 'display_flex');
-            // for (let i = 0; i < avatarImgs.length; i++) { avatarImgs[i].style.display = "initial"; }
-            // for (let i = 0; i < messageItems.length; i++) { messageItems[i].style.paddingLeft = "72px"; }
-          }
+    console.log("%c[DISCORD-CHANNEL-COLLAPSER] Discord Channel Collapser is WORKING", consoleStyleSuccess);
+    const tutorialContainer = $(".tutorialContainer__890ea"); // 팝캣 버튼을 배치할 위치
+    const sidebar = $(".sidebar_ded4b5"); // 안보이게 할 사이드바
+    tutorialContainer.after(`
+      <div class="tutorialContainer__popcatChan">
+        <div class="listItem_fa7b36">
+          <div class="popcatChan-collapse" />
+        </div>
+      </div>
+    `);
+    const popcatChan = $(".popcatChan-collapse"); // 팝캣 버튼
+    popcatChan.click(function (e) { 
+      e.preventDefault();
+      sidebar.animate({width: 'toggle'}, function() {
+        console.log(sidebar.css('display'));
+        if (sidebar.css('display') === 'none') {
+          localStorage.setItem("popcatSidebarState", "none");
+        } else if (sidebar.css('display') === 'flex') {
+          localStorage.setItem("popcatSidebarState", "flex");
         }
-      )
+      });
+    });
+    if (
+      window.location.href.indexOf('discord.com/channels/') > -1
+      && localStorage.getItem('popcatSidebarState') === 'none'
+    ) {
+      sidebar.animate({width: 'toggle'});
     }
-    if (window.location.href.indexOf('discord.com/channels/') > -1 &&targetStuff && collapseButton && localStorage.getItem('sidebar_ded4b5') === 'display_none') {
-      targetStuff.style.display = "none";
-      // for (let i = 0; i < avatarImgs.length; i++) { avatarImgs[i].style.display = "none";  }
-      // for (let i = 0; i < messageItems.length; i++) { messageItems[i].style.paddingLeft = "15px"; }
-    } else if (window.location.href.indexOf('discord.com/channels/') > -1 &&targetStuff && collapseButton && localStorage.getItem('sidebar_ded4b5') === 'display_flex') {
-      targetStuff.style.display = "flex";
-      // for (let i = 0; i < avatarImgs.length; i++) { avatarImgs[i].style.display = "initial"; }
-      // for (let i = 0; i < messageItems.length; i++) { messageItems[i].style.paddingLeft = "72px"; }
-    } else {
-        console.log("Now you are in the lobby. which means there's no button to modify now.");
-      }
   }
 };
-setTimeout(mainInjection, 5000);
+
+let interval = setInterval(() => {
+  let targetElement = $(".tutorialContainer__890ea"); // 팝캣 버튼을 배치할 위치
+  console.log("%c[DISCORD-CHANNEL-COLLAPSER] Finding target element...", consoleStyleNormal);
+  if (targetElement.length > 0) {
+    console.log("%c[DISCORD-CHANNEL-COLLAPSER] Target element found.", consoleStyleSuccess);
+    clearInterval(interval);
+    mainInjection();
+  }
+}, 1000);
+setTimeout(() => {
+  let targetElement = $(".tutorialContainer__890ea"); // 팝캣 버튼을 배치할 위치
+  if (targetElement.length === 0) {
+    console.log("%c[DISCORD-CHANNEL-COLLAPSER] NO TARGET FOUND, ERROR", consoleStyleError);
+  }
+  clearInterval(interval);
+}, 10000);

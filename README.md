@@ -14,6 +14,8 @@ Do you really use Discord web? No you don't. You won't.
 
 ## devlog (KST, UTC+09:00)
 
+### 2024-02-24 10:51
+refactored code. heheh.
 ### 2022-03-28 12:17
 meh now this has Pop Cat.
 ### 2022-03-27 21:04
