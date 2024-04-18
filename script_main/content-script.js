@@ -8,7 +8,7 @@ function mainInjection(tutorialContainer) {
     const sidebar = $(".sidebar_ded4b5"); // 안보이게 할 사이드바
     tutorialContainer.after(`
       <div class="tutorialContainer__popcatChan">
-        <div class="listItem_fa7b36">
+        <div class="listItem__48528">
           <div class="popcatChan-collapse" />
         </div>
       </div>
@@ -35,7 +35,7 @@ function mainInjection(tutorialContainer) {
 };
 
 let interval = setInterval(() => {
-  let tutorialContainer = $(".tutorialContainer__890ea"); // 팝캣 버튼을 배치할 위치
+  let tutorialContainer = $(".tutorialContainer_b06ae6"); // 팝캣 버튼을 배치할 위치
   console.log("%c[DISCORD-CHANNEL-COLLAPSER] Finding target element...", consoleStyleNormal);
   if (tutorialContainer.length > 0) {
     console.log("%c[DISCORD-CHANNEL-COLLAPSER] Target element found.", consoleStyleSuccess);
@@ -44,7 +44,7 @@ let interval = setInterval(() => {
   }
 }, 1000);
 setTimeout(() => {
-  let tutorialContainer = $(".tutorialContainer__890ea"); // 팝캣 버튼을 배치할 위치
+  let tutorialContainer = $(".tutorialContainer_b06ae6"); // 팝캣 버튼을 배치할 위치
   if (tutorialContainer.length === 0) {
     console.log("%c[DISCORD-CHANNEL-COLLAPSER] NO TARGET FOUND, ERROR", consoleStyleError);
   }
