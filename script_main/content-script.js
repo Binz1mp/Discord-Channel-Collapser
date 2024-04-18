@@ -5,7 +5,7 @@ let consoleStyleError = "text-shadow: 1px 1px 2px black, 0 0 1em red, 0 0 0.2em 
 function mainInjection(tutorialContainer) {
   if (window.location.href.indexOf('discord.com/channels/') > -1) {
     console.log("%c[DISCORD-CHANNEL-COLLAPSER] Discord Channel Collapser is WORKING", consoleStyleSuccess);
-    const sidebar = $(".sidebar_ded4b5"); // 안보이게 할 사이드바
+    const sidebar = $(".sidebar_e031be"); // 안보이게 할 사이드바
     tutorialContainer.after(`
       <div class="tutorialContainer__popcatChan">
         <div class="listItem__48528">
