@@ -1,11 +1,18 @@
-.tutorialContainer__popcatChan {
+/* .tutorialContainer_popcatChan {
   position: relative;
   margin-bottom: 8px;
+} */
+
+.listItem_popcatChan {
+  position: relative;
+  margin: 0 0 8px;
+  display: flex;
+  justify-content: center;
+  width: var(--custom-list-items-list-item-width);
 }
 
 .popcatChan-collapse {
   color: white !important;
-  margin: auto;
   cursor: pointer;
   width: 48px;
   height: 48px;
@@ -18,7 +25,7 @@
   overflow: hidden;
   background-image: url("chrome-extension://__MSG_@@extension_id__/images/popcat-normal.png");
 }
-  
+
 .popcatChan-collapse:hover {
   border-radius: 30%;
 }

@@ -6,9 +6,9 @@ function mainInjection(tutorialContainer) {
   if (window.location.href.indexOf('discord.com/channels/') > -1) {
     console.log("%c[DISCORD-CHANNEL-COLLAPSER] Discord Channel Collapser is WORKING", consoleStyleSuccess);
     const sidebar = $("div[class^=content_] > div[class^=sidebar_]"); // 안보이게 할 사이드바
-    tutorialContainer.prepend(`
-      <div class="tutorialContainer__popcatChan">
-        <div class="listItem__48528">
+    tutorialContainer.eq(0).after(`
+      <div class="tutorialContainer_popcatChan">
+        <div class="listItem_popcatChan">
           <div class="popcatChan-collapse" />
         </div>
       </div>
@@ -35,17 +35,19 @@ function mainInjection(tutorialContainer) {
 };
 
 let interval = setInterval(() => {
-  let tutorialContainer = $("ul[data-list-id=guildsnav] > div[class^=scroller]"); // 팝캣 버튼을 배치할 위치
+  let vanilaTutorialContainer = document.querySelectorAll("ul[data-list-id=guildsnav] > div[class^=scroller] > div[class^=tutorialContainer_]");
+  let tutorialContainer = $("ul[data-list-id=guildsnav] > div[class^=scroller] > div[class^=tutorialContainer_]"); // 팝캣 버튼을 배치할 위치
   console.log("%c[DISCORD-CHANNEL-COLLAPSER] Finding target element...", consoleStyleNormal);
-  if (tutorialContainer.length > 0) {
+  if (vanilaTutorialContainer.length > 1 && document.readyState == 'complete') {
     console.log("%c[DISCORD-CHANNEL-COLLAPSER] Target element found.", consoleStyleSuccess);
     clearInterval(interval);
     mainInjection(tutorialContainer);
   }
 }, 1000);
 setTimeout(() => {
-  let tutorialContainer = $("ul[data-list-id=guildsnav] > div[class^=scroller]"); // 팝캣 버튼을 배치할 위치
-  if (tutorialContainer.length === 0) {
+  let vanilaTutorialContainer = document.querySelectorAll("ul[data-list-id=guildsnav] > div[class^=scroller] > div[class^=tutorialContainer_]"); // 팝캣 버튼을 배치할 위치
+  // let tutorialContainer = $("ul[data-list-id=guildsnav] > div[class^=scroller] > div[class^=tutorialContainer_]"); // 팝캣 버튼을 배치할 위치
+  if (vanilaTutorialContainer.length === 0) {
     console.log("%c[DISCORD-CHANNEL-COLLAPSER] NO TARGET FOUND, ERROR", consoleStyleError);
   }
   clearInterval(interval);
