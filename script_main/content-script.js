@@ -5,8 +5,8 @@ let consoleStyleError = "text-shadow: 1px 1px 2px black, 0 0 1em red, 0 0 0.2em 
 function mainInjection(tutorialContainer) {
   if (window.location.href.indexOf('discord.com/channels/') > -1) {
     console.log("%c[DISCORD-CHANNEL-COLLAPSER] Discord Channel Collapser is WORKING", consoleStyleSuccess);
-    const sidebar = $(".sidebar_e031be"); // 안보이게 할 사이드바
-    tutorialContainer.after(`
+    const sidebar = $("div[class^=content_] > div[class^=sidebar_]"); // 안보이게 할 사이드바
+    tutorialContainer.prepend(`
       <div class="tutorialContainer__popcatChan">
         <div class="listItem__48528">
           <div class="popcatChan-collapse" />
@@ -35,7 +35,7 @@ function mainInjection(tutorialContainer) {
 };
 
 let interval = setInterval(() => {
-  let tutorialContainer = $(".tutorialContainer_b06ae6"); // 팝캣 버튼을 배치할 위치
+  let tutorialContainer = $("ul[data-list-id=guildsnav] > div[class^=scroller]"); // 팝캣 버튼을 배치할 위치
   console.log("%c[DISCORD-CHANNEL-COLLAPSER] Finding target element...", consoleStyleNormal);
   if (tutorialContainer.length > 0) {
     console.log("%c[DISCORD-CHANNEL-COLLAPSER] Target element found.", consoleStyleSuccess);
@@ -44,7 +44,7 @@ let interval = setInterval(() => {
   }
 }, 1000);
 setTimeout(() => {
-  let tutorialContainer = $(".tutorialContainer_b06ae6"); // 팝캣 버튼을 배치할 위치
+  let tutorialContainer = $("ul[data-list-id=guildsnav] > div[class^=scroller]"); // 팝캣 버튼을 배치할 위치
   if (tutorialContainer.length === 0) {
     console.log("%c[DISCORD-CHANNEL-COLLAPSER] NO TARGET FOUND, ERROR", consoleStyleError);
   }

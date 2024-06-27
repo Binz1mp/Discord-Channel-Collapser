@@ -1,9 +1,11 @@
 .tutorialContainer__popcatChan {
   position: relative;
+  margin-bottom: 8px;
 }
 
 .popcatChan-collapse {
   color: white !important;
+  margin: auto;
   cursor: pointer;
   width: 48px;
   height: 48px;
