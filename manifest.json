@@ -1,18 +1,25 @@
 {
   "name": "Discord Channel Collapser",
   "description": "This will let you have a button that can hide/show Discord channel sidebar.",
-  "version": "1.0.3.0",
+  "version": "1.0.5",
   "manifest_version": 3,
+  "host_permissions": [
+    "https://*.discord.com/*"
+  ],
   "content_scripts": [
     {
-      "matches": ["https://discord.com/channels/*"], 
+      "matches": [
+        "https://*.discord.com/app",
+        "https://*.discord.com/channels/*",
+        "https://*.discord.com/login"
+      ], 
       "js": [
         "script_lib/jquery-3.7.1.min.js",
         "script_main/content-script.js"
       ],
       "css" : ["css_main/style-injector.css"]
     }
-],
+  ],
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
