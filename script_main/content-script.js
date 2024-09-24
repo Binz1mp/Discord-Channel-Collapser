@@ -2,8 +2,10 @@ let consoleStyleNormal = "text-shadow: 1px 1px 2px black, 0 0 1em gray, 0 0 0.2e
 let consoleStyleSuccess = "text-shadow: 1px 1px 2px black, 0 0 1em blue, 0 0 0.2em blue; background-color: gray; font-size: 16px; color: #ffffff";
 let consoleStyleError = "text-shadow: 1px 1px 2px black, 0 0 1em red, 0 0 0.2em red; background-color: gray; font-size: 16px; color: #ffffff";
 
+let isPopcatChanMounted = false;
+
 function mainInjection(tutorialContainer) {
-  if (window.location.href.indexOf('discord.com/channels/') > -1) {
+  if (window.location.href.indexOf('discord.com/channels/') > -1 && !isPopcatChanMounted) {
     console.log("%c[DISCORD-CHANNEL-COLLAPSER] Discord Channel Collapser is mounted.", consoleStyleSuccess);
     const sidebar = $("div[class^=content_] > div[class^=sidebar_]"); // 안보이게 할 사이드바
     tutorialContainer.eq(0).after(`
@@ -13,6 +15,7 @@ function mainInjection(tutorialContainer) {
         </div>
       </div>
     `);
+    isPopcatChanMounted = true;
     const popcatChan = $(".popcatChan-collapse"); // 팝캣 버튼
     popcatChan.click(function (e) { 
       e.preventDefault();
@@ -42,15 +45,15 @@ function monitorDiscordStatus() {
   const observer = new PerformanceObserver((list) => {
     for (const entry of list.getEntries()) {
       if (targetUrls.some(url => entry.name.includes(url))) {
-        console.log("%c[DISCORD-CHANNEL-COLLAPSER] Discord app detected.", consoleStyleSuccess);
+        // console.log("%c[DISCORD-CHANNEL-COLLAPSER] Discord app detected.", consoleStyleSuccess);
         let vanilaTutorialContainer = document.querySelectorAll("ul[data-list-id=guildsnav] > div[class^=scroller] > div[class^=tutorialContainer_]");
         let tutorialContainer = $("ul[data-list-id=guildsnav] > div[class^=scroller] > div[class^=tutorialContainer_]"); // 팝캣 버튼을 배치할 위치
-        console.log("%c[DISCORD-CHANNEL-COLLAPSER] Finding target element...", consoleStyleNormal);
+        // console.log("%c[DISCORD-CHANNEL-COLLAPSER] Finding target element...", consoleStyleNormal);
         if (vanilaTutorialContainer.length > 0 && document.readyState == 'complete') {
-          console.log("%c[DISCORD-CHANNEL-COLLAPSER] Target element found.", consoleStyleSuccess);
+          // console.log("%c[DISCORD-CHANNEL-COLLAPSER] Target element found.", consoleStyleSuccess);
           mainInjection(tutorialContainer);
           observer.disconnect();
-          console.log("%c[DISCORD-CHANNEL-COLLAPSER] Observer disconnected.", consoleStyleSuccess);
+          // console.log("%c[DISCORD-CHANNEL-COLLAPSER] Observer disconnected.", consoleStyleSuccess);
         }
       }
     }
