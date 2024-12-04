@@ -45,15 +45,15 @@ function monitorDiscordStatus() {
   const observer = new PerformanceObserver((list) => {
     for (const entry of list.getEntries()) {
       if (targetUrls.some(url => entry.name.includes(url))) {
-        // console.log("%c[DISCORD-CHANNEL-COLLAPSER] Discord app detected.", consoleStyleSuccess);
-        let vanilaTutorialContainer = document.querySelectorAll("ul[data-list-id=guildsnav] > div[class^=scroller] > div[class^=tutorialContainer_]");
-        let tutorialContainer = $("ul[data-list-id=guildsnav] > div[class^=scroller] > div[class^=tutorialContainer_]"); // 팝캣 버튼을 배치할 위치
-        // console.log("%c[DISCORD-CHANNEL-COLLAPSER] Finding target element...", consoleStyleNormal);
+        console.log("%c[DISCORD-CHANNEL-COLLAPSER] Discord app detected.", consoleStyleSuccess);
+        let vanilaTutorialContainer = document.querySelectorAll("div[class^=scroller] > div[class^=tutorialContainer_]");
+        let tutorialContainer = $("div[class^=scroller] > div[class^=tutorialContainer_]"); // 팝캣 버튼을 배치할 위치
+        console.log("%c[DISCORD-CHANNEL-COLLAPSER] Finding target element...", consoleStyleNormal);
         if (vanilaTutorialContainer.length > 0 && document.readyState == 'complete') {
-          // console.log("%c[DISCORD-CHANNEL-COLLAPSER] Target element found.", consoleStyleSuccess);
+          console.log("%c[DISCORD-CHANNEL-COLLAPSER] Target element found.", consoleStyleSuccess);
           mainInjection(tutorialContainer);
           observer.disconnect();
-          // console.log("%c[DISCORD-CHANNEL-COLLAPSER] Observer disconnected.", consoleStyleSuccess);
+          console.log("%c[DISCORD-CHANNEL-COLLAPSER] Observer disconnected.", consoleStyleSuccess);
         }
       }
     }
