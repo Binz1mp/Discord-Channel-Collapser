@@ -38,7 +38,7 @@ function mainInjection(tutorialContainer) {
 
 function monitorDiscordStatus() {
   const targetUrls = [
-    "https://discord.com/api/v9/science",
+    "https://discord.com/api/v9/channels",
     // Add more URLs here if needed
   ];
 
