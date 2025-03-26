@@ -46,8 +46,8 @@ function monitorDiscordStatus() {
     for (const entry of list.getEntries()) {
       if (targetUrls.some(url => entry.name.includes(url))) {
         console.log("%c[DISCORD-CHANNEL-COLLAPSER] Discord app detected.", consoleStyleSuccess);
-        let vanilaTutorialContainer = document.querySelectorAll("div[class^=scroller] > div[class^=tutorialContainer_]");
-        let tutorialContainer = $("div[class^=scroller] > div[class^=tutorialContainer_]"); // 팝캣 버튼을 배치할 위치
+        let vanilaTutorialContainer = document.querySelectorAll("div[class^=sidebar_] ul > div[class^=itemsContainer_] > div > div[class^=tutorialContainer_]");
+        let tutorialContainer = $("div[class^=sidebar_] ul > div[class^=itemsContainer_] > div > div[class^=tutorialContainer_]"); // 팝캣 버튼을 배치할 위치
         console.log("%c[DISCORD-CHANNEL-COLLAPSER] Finding target element...", consoleStyleNormal);
         if (vanilaTutorialContainer.length > 0 && document.readyState == 'complete') {
           console.log("%c[DISCORD-CHANNEL-COLLAPSER] Target element found.", consoleStyleSuccess);
