@@ -7,7 +7,7 @@ let isPopcatChanMounted = false;
 function mainInjection(tutorialContainer) {
   if (window.location.href.indexOf('discord.com/channels/') > -1 && !isPopcatChanMounted) {
     console.log("%c[DISCORD-CHANNEL-COLLAPSER] Discord Channel Collapser is mounted.", consoleStyleSuccess);
-    const sidebar = $("div[class^=content_] > div[class^=sidebar_]"); // 안보이게 할 사이드바
+    const sidebar = $("div[class^=content_] > div > div[class^=sidebarList_]"); // 안보이게 할 사이드바
     tutorialContainer.eq(0).after(`
       <div class="tutorialContainer_popcatChan">
         <div class="listItem_popcatChan">
