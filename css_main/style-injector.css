@@ -52,3 +52,8 @@
 .popcatChan-collapse {  
   animation: 0.3s ease-out popcatChan_landing;
 }
+
+
+div[class^="sidebar_"] > section[class^="panels_"]  > div[class^="container__"] > div[class^="avatarWrapper__"] {
+  z-index: 1;
+}
