@@ -57,3 +57,22 @@
 div[class^="sidebar_"] > section[class^="panels_"]  > div[class^="container__"] > div[class^="avatarWrapper__"] {
   z-index: 1;
 }
+
+
+
+
+
+
+/* temporary */
+div[class^="message__"] {
+  padding-left: 10px !important;
+}
+div[clas^="subtitleContainer_"],
+div[class^="message__"] > div[class^="contents_"] > img[class^="avatar_"],
+div[class^="message__"] > div[class^="contents_"] > img[class^="avatarDecoration_"] {
+  display: none !important;
+}
+
+div[class^="container_"] > div[class^="base_"] > div[class^="bar_"] > div[class^="title_"] {
+  cursor: pointer !important;
+}
