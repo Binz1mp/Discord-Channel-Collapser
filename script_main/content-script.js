@@ -8,13 +8,16 @@ function mainInjection(tutorialContainer) {
   if (window.location.href.indexOf('discord.com/channels/') > -1 && !isPopcatChanMounted) {
     console.log("%c[DISCORD-CHANNEL-COLLAPSER] Discord Channel Collapser is mounted.", consoleStyleSuccess);
     
-    const channelTitle = $('div[class^="container_"] > div[class^="base_"] > div[class^="bar_"] > div[class^="title_"]');
+    const channelTitle = $('div[class^="container_"] > div[class^="base_"] > div[class^="bar_"] > div[class^="title_"] > div[class^="title_"]');
     const channelHeader = $(`div[class^="subtitleContainer_"]`);
     const serverSidebar = $('div[class^="container_"] > div[class^="base_"] > div[class^="content_"] > div[class^="sidebar_"]');
 
     channelTitle.on('click', () => {
       channelHeader.slideToggle();
       serverSidebar.slideToggle();
+
+      document.title = "Whale";
+      channelTitle.html('undefined');
     });
 
     const sidebar = $("div[class^=content_] > div > div[class^=sidebarList_]"); // 안보이게 할 사이드바

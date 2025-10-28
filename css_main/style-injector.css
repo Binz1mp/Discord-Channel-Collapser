@@ -73,6 +73,7 @@ div[class^="message__"] > div[class^="contents_"] > img[class^="avatarDecoration
   display: none !important;
 }
 
-div[class^="container_"] > div[class^="base_"] > div[class^="bar_"] > div[class^="title_"] {
+div[class^="container_"] > div[class^="base_"] > div[class^="bar_"] > div[class^="title_"] > div[class^="title_"] {
   cursor: pointer !important;
+  color: var(--text-default);
 }
