@@ -54,7 +54,7 @@
 }
 
 
-div[class*="-sidebar"] > section[class*="-panels"]  > div[class*="-container_"] > div[class*="-avatarWrapper_"] {
+div[class*="sidebar"] > section[class*="panels"]  > div[class*="container_"] > div[class*="avatarWrapper_"] {
   z-index: 1;
 }
 
@@ -64,16 +64,16 @@ div[class*="-sidebar"] > section[class*="-panels"]  > div[class*="-container_"] 
 
 
 /* temporary */
-div[class*="-message_"] {
+div[class*="message_"] {
   padding-left: 10px !important;
 }
-div[class*="-subtitleContainer"],
-div[class*="-message_"] > div[class*="-contents"] > img[class*="-avatar"],
-div[class*="-message_"] > div[class*="-contents"] > img[class*="-avatarDecoration"] {
+div[class*="subtitleContainer"],
+div[class*="message_"] > div[class*="contents"] > img[class*="avatar"],
+div[class*="message_"] > div[class*="contents"] > img[class*="avatarDecoration"] {
   display: none !important;
 }
 
-div[class*="-container"] > div[class*="-base"] > div[class*="-bar"] > div[class*="-title"] > div[class*="-title"] {
+div[class*="container"] > div[class*="base"] > div[class*="bar"] > div[class*="title"] > div[class*="title"] > div[class*="lineClamp1"] {
   cursor: pointer !important;
   color: var(--text-default);
 }
