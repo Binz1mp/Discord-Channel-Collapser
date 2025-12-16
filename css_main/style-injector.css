@@ -54,7 +54,7 @@
 }
 
 
-div[class^="sidebar_"] > section[class^="panels_"]  > div[class^="container__"] > div[class^="avatarWrapper__"] {
+div[class*="-sidebar"] > section[class*="-panels"]  > div[class*="-container_"] > div[class*="-avatarWrapper_"] {
   z-index: 1;
 }
 
@@ -64,16 +64,16 @@ div[class^="sidebar_"] > section[class^="panels_"]  > div[class^="container__"] 
 
 
 /* temporary */
-div[class^="message__"] {
+div[class*="-message_"] {
   padding-left: 10px !important;
 }
-div[clas^="subtitleContainer_"],
-div[class^="message__"] > div[class^="contents_"] > img[class^="avatar_"],
-div[class^="message__"] > div[class^="contents_"] > img[class^="avatarDecoration_"] {
+div[class*="-subtitleContainer"],
+div[class*="-message_"] > div[class*="-contents"] > img[class*="-avatar"],
+div[class*="-message_"] > div[class*="-contents"] > img[class*="-avatarDecoration"] {
   display: none !important;
 }
 
-div[class^="container_"] > div[class^="base_"] > div[class^="bar_"] > div[class^="title_"] > div[class^="title_"] {
+div[class*="-container"] > div[class*="-base"] > div[class*="-bar"] > div[class*="-title"] > div[class*="-title"] {
   cursor: pointer !important;
   color: var(--text-default);
 }

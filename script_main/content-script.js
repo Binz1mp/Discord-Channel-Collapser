@@ -8,9 +8,9 @@ function mainInjection(tutorialContainer) {
   if (window.location.href.indexOf('discord.com/channels/') > -1 && !isPopcatChanMounted) {
     console.log("%c[DISCORD-CHANNEL-COLLAPSER] Discord Channel Collapser is mounted.", consoleStyleSuccess);
     
-    const channelTitle = $('div[class^="container_"] > div[class^="base_"] > div[class^="bar_"] > div[class^="title_"] > div[class^="title_"]');
-    const channelHeader = $(`div[class^="subtitleContainer_"]`);
-    const serverSidebar = $('div[class^="container_"] > div[class^="base_"] > div[class^="content_"] > div[class^="sidebar_"]');
+    const channelTitle = $('div[class*="-container"] > div[class*="-base"] > div[class*="-bar"] > div[class*="-title"] > div[class*="-title"]');
+    const channelHeader = $(`div[class*="-subtitleContainer"]`);
+    const serverSidebar = $('div[class*="-container"] > div[class*="-base"] > div[class*="-content"] > div[class*="-sidebar"]');
 
     channelTitle.on('click', () => {
       channelHeader.slideToggle();
@@ -20,7 +20,7 @@ function mainInjection(tutorialContainer) {
       channelTitle.html('undefined');
     });
 
-    const sidebar = $("div[class^=content_] > div > div[class^=sidebarList_]"); // 안보이게 할 사이드바
+    const sidebar = $("div[class*=content_] > div > div[class*=-sidebarList_]"); // 안보이게 할 사이드바
     tutorialContainer.eq(0).after(`
       <div class="tutorialContainer_popcatChan">
         <div class="listItem_popcatChan">
@@ -59,8 +59,8 @@ function monitorDiscordStatus() {
     for (const entry of list.getEntries()) {
       if (targetUrls.some(url => entry.name.includes(url))) {
         console.log("%c[DISCORD-CHANNEL-COLLAPSER] Discord app detected.", consoleStyleSuccess);
-        let vanilaTutorialContainer = document.querySelectorAll("div[class^=sidebar_] ul > div[class^=itemsContainer_] > div > div[class^=tutorialContainer_]");
-        let tutorialContainer = $("div[class^=sidebar_] ul > div[class^=itemsContainer_] > div > div[class^=tutorialContainer_]"); // 팝캣 버튼을 배치할 위치
+        let vanilaTutorialContainer = document.querySelectorAll("div[class*=-sidebar] ul > div[class*=-itemsContainer] > div > div[class*=-tutorialContainer]");
+        let tutorialContainer = $("div[class*=-sidebar] ul > div[class*=-itemsContainer] > div > div[class*=-tutorialContainer]"); // 팝캣 버튼을 배치할 위치
         console.log("%c[DISCORD-CHANNEL-COLLAPSER] Finding target element...", consoleStyleNormal);
         if (vanilaTutorialContainer.length > 0 && document.readyState == 'complete') {
           console.log("%c[DISCORD-CHANNEL-COLLAPSER] Target element found.", consoleStyleSuccess);
