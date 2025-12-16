@@ -11,16 +11,18 @@ function mainInjection(tutorialContainer) {
     const channelTitle = $('div[class*="-container"] > div[class*="-base"] > div[class*="-bar"] > div[class*="-title"] > div[class*="-title"]');
     const channelHeader = $(`div[class*="-subtitleContainer"]`);
     const serverSidebar = $('div[class*="-container"] > div[class*="-base"] > div[class*="-content"] > div[class*="-sidebar"]');
+    const panelButtons = $('div[class*=-sidebar] > section[class*="-panels"] > div[class*="-container"] > div[class*="-buttons"]');
 
     channelTitle.on('click', () => {
       channelHeader.slideToggle();
       serverSidebar.slideToggle();
+      panelButtons.slideToggle();
 
       document.title = "Whale";
       channelTitle.html('undefined');
     });
 
-    const sidebar = $("div[class*=content_] > div > div[class*=-sidebarList_]"); // 안보이게 할 사이드바
+    const sidebar = $("div[class*=content] > div > div[class*=-sidebarList]"); // 안보이게 할 사이드바
     tutorialContainer.eq(0).after(`
       <div class="tutorialContainer_popcatChan">
         <div class="listItem_popcatChan">
@@ -32,6 +34,7 @@ function mainInjection(tutorialContainer) {
     const popcatChan = $(".popcatChan-collapse"); // 팝캣 버튼
     popcatChan.click(function (e) { 
       e.preventDefault();
+      panelButtons.animate({width: 'toggle'});
       sidebar.animate({width: 'toggle'}, function() {
         if (sidebar.css('display') === 'none') {
           localStorage.setItem("popcatSidebarState", "none");
@@ -45,6 +48,7 @@ function mainInjection(tutorialContainer) {
       && localStorage.getItem('popcatSidebarState') === 'none'
     ) {
       sidebar.animate({width: 'toggle'});
+      panelButtons.animate({width: 'toggle'});
     }
   }
 };
