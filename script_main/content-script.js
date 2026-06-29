@@ -63,8 +63,11 @@ function monitorDiscordStatus() {
     for (const entry of list.getEntries()) {
       if (targetUrls.some(url => entry.name.includes(url))) {
         console.log("%c[DISCORD-CHANNEL-COLLAPSER] Discord app detected.", consoleStyleSuccess);
-        let vanilaTutorialContainer = document.querySelectorAll('div[class*="sidebar"] ul > div[class*="itemsContainer"] > div > div[class*="tutorialContainer"]');
-        let tutorialContainer = $('div[class*="sidebar"] ul > div[class*="itemsContainer"] > div > div[class*="tutorialContainer"]'); // 팝캣 버튼을 배치할 위치
+        // let vanilaTutorialContainer = document.querySelectorAll('div[class*="sidebar"] ul > div[class*="itemsContainer"] > div > div[class*="tutorialContainer"]');
+        // let tutorialContainer = $('div[class*="sidebar"] ul > div[class*="itemsContainer"] > div > div[class*="tutorialContainer"]'); // 팝캣 버튼을 배치할 위치
+        let vanilaTutorialContainer = document.querySelectorAll('div[class*="sidebar"] div[class*="tutorialContainer"]');
+        let tutorialContainer = $('div[class*="sidebar"] div[class*="tutorialContainer"]'); // 팝캣 버튼을 배치할 위치
+        console.log('tutorialContainer', tutorialContainer)
         console.log("%c[DISCORD-CHANNEL-COLLAPSER] Finding target element...", consoleStyleNormal);
         if (vanilaTutorialContainer.length > 0 && document.readyState == 'complete') {
           console.log("%c[DISCORD-CHANNEL-COLLAPSER] Target element found.", consoleStyleSuccess);
